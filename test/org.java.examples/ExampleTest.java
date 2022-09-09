@@ -1,3 +1,11 @@
+/**
+ * Demonstrates JUnit 5 functionalities
+ *
+ * @author  ebeman12
+ * @version 0.1
+ * @date   09.09.2022
+ */
+
 package org.java.examples;
 
 import org.junit.jupiter.api.*;
@@ -48,6 +56,7 @@ public class ExampleTest {
         assertTrue(true);
     }
 
+    @Disabled("Disabled due to bugs")
     @ParameterizedTest
     @EnumSource(EnumExample.class)
     public void isNumberEven_ShouldReturnTrueIfNumIsEven(EnumExample enumExample) {

@@ -1,3 +1,11 @@
+/**
+ * Own defined custom annotation to separate tests
+ *
+ * @author  ebeman12
+ * @version 0.1
+ * @date   09.09.2022
+ */
+
 package org.java.examples;
 
 import java.lang.annotation.ElementType;

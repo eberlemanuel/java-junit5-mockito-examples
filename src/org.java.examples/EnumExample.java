@@ -1,3 +1,11 @@
+/**
+ * Example enum to demonstrate parameterized tests with an EnumSource
+ *
+ * @author  ebeman12
+ * @version 0.1
+ * @date   09.09.2022
+ */
+
 package org.java.examples;
 
 public enum EnumExample {

@@ -1,0 +1,26 @@
+name: Pipeline Build and Test
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: macosx-self
+    steps:
+      - name: Checkout repository
+      - uses: actions/checkout@v3
+
+      - name: Build and Test (full) with Gradle
+        run: gradle build
+
+      - name: Build and Test (fast) with Gradle
+        run: gradle fastTest
+
+      - name: Publish JUnit Test Results
+        uses: EnricoMi/publish-unit-test-result-action/composite@v2
+        if: always()
+        with:
+          junit_files: "build/test-results/junit/**/*.xml"

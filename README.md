@@ -1,1 +1,1 @@
-# java-junit5-mockito-examples
+# Java JUnit5 and Mockito examples

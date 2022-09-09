@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'jacoco'
 }
 
 group 'org.java-junit5-mockito-examples'
@@ -22,26 +23,44 @@ repositories {
     mavenCentral()
 }
 
-ext {
-    junitJupiterVersion = '5.8.2'
-}
-
 dependencies {
-    testImplementation "org.junit.jupiter:junit-jupiter-api:${junitJupiterVersion}"
-    testImplementation "org.junit.jupiter:junit-jupiter-params:${junitJupiterVersion}"
+    testImplementation "org.junit.jupiter:junit-jupiter-api:5.9.0"
+    testImplementation "org.junit.jupiter:junit-jupiter-params:5.9.0"
 
-    testImplementation 'org.mockito:mockito-core:4.6.1'
-    testImplementation 'org.mockito:mockito-junit-jupiter:4.6.1'
+    testImplementation 'org.mockito:mockito-core:4.7.0'
+    testImplementation 'org.mockito:mockito-junit-jupiter:4.7.0'
 
-    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:${junitJupiterVersion}"
+    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:5.9.0"
 }
 
-test {
+jacocoTestReport {
+    dependsOn test
+    reports {
+        xml.required = true
+        csv.required = true
+        html.required = true
+    }
+}
+
+jacoco {
+    toolVersion = "0.8.8"
+    reportsDirectory = layout.buildDirectory.dir('codecoverage')
+}
+
+task fullTest(type: Test) {
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
     useJUnitPlatform()
+    finalizedBy jacocoTestReport
 }
 
-/*test {
+task fastTest(type: Test) {
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
     useJUnitPlatform {
         includeTags "fast"
     }
-}*/
+    finalizedBy jacocoTestReport
+}

@@ -1,3 +1,11 @@
+/**
+ * Demonstrate Mockito and JUnit 5
+ *
+ * @author  ebeman12
+ * @version 0.1
+ * @date   09.09.2022
+ */
+
 package org.java.examples;
 
 import org.junit.jupiter.api.*;
