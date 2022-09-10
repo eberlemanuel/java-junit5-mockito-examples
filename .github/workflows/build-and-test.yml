@@ -17,10 +17,10 @@ jobs:
         uses: gradle/gradle-build-action@v2
 
       - name: Build and Test (full) with Gradle
-        run: gradle build
+        run: ./gradlew build
 
       - name: Build and Test (fast) with Gradle
-        run: gradle fastTest
+        run: ./gradlew fastTest
 
       - name: Publish JUnit Test Results
         uses: EnricoMi/publish-unit-test-result-action/composite@v2

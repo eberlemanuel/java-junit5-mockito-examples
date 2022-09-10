@@ -8,3 +8,6 @@
  */
 
 rootProject.name = 'java-junit5-mockito-examples'
+include 'src:main'
+findProject(':src:main')?.name = 'main'
+
