@@ -8,10 +8,13 @@ on:
 
 jobs:
   build:
-    runs-on: macosx-self
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
       - uses: actions/checkout@v3
+
+      - name: Setup Gradle
+        uses: gradle/gradle-build-action@v2
 
       - name: Build and Test (full) with Gradle
         run: gradle build
