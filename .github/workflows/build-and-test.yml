@@ -19,7 +19,7 @@ jobs:
       - name: Build and Test (full) with Gradle
         run: gradle build
 
-      - name: Build and Test (fast) with Gradle
+      - name: Build and Test (fast) with Gradle [optional]
         run: gradle fastTest
 
       - name: Publish JUnit Test Results
